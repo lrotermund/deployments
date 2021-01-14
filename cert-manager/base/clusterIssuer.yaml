@@ -1,4 +1,4 @@
-apiVersion: cert-manager.io/v1alpha3
+apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
 metadata:
   name: letsencrypt
@@ -6,11 +6,9 @@ spec:
   acme:
     email: lukas.rotermund@live.de
     privateKeySecretRef:
-      name: prod-issuer-account-key
+      name: letsencrypt
     server: https://acme-v02.api.letsencrypt.org/directory
-    http01: {}
     solvers:
       - http01:
           ingress:
             class: traefik
-        selector: {}

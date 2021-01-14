@@ -13,4 +13,4 @@ spec:
           pathType: Prefix
           backend:
             serviceName: blog
-            servicePort: 808
+            servicePort: 80

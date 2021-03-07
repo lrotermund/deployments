@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
       - name: blog
-        image: lrotermund/blog:v1.6.1
+        image: lrotermund/blog:v1.7.0

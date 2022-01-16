@@ -6,5 +6,5 @@ spec:
   template:
     spec:
       containers:
-      - name: blog
-        image: lrotermund/blog:v1.8.10
+        - name: blog
+          image: lrotermund/blog:v1.8.10

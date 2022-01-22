@@ -8,8 +8,8 @@ metadata:
     ingress.kubernetes.io/custom-frame-options-value: SAMEORIGIN
     kubernetes.io/ingress.class: traefik
     cert-manager.io/cluster-issuer: letsencrypt
-    traefik.ingress.kubernetes.io/redirect-entry-point: https
-    traefik.ingress.kubernetes.io/redirect-permanent: "true"
+    #traefik.ingress.kubernetes.io/redirect-entry-point: https
+    #traefik.ingress.kubernetes.io/redirect-permanent: "true" 
 spec:
   rules:
     - host: lukasrotermund.invalid

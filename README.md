@@ -24,3 +24,15 @@ kubeseal --format yaml < my-secret.yaml > my-sealedsecret.yaml
 
 Remove the raw secret carefully so that it is not versioned by git. Last but not least add the sealed secret to git. 
 
+## Force http to https redirect with traefik
+
+Add the following ingress annotation to enable `http` to `https` redirects:
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  namespace: mynamespace
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+```

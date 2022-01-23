@@ -3,3 +3,4 @@ kind: Kustomization
 bases:
   - blog
   - sealed-secret
+  - keycloak

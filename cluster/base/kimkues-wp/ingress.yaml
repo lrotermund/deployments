@@ -11,7 +11,8 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
     traefik.ingress.kubernetes.io/redirect-entry-point: https
     traefik.ingress.kubernetes.io/redirect-permanent: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+    # custom middlewares
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-remove-server-header@kubernetescrd,default-remove-x-powered-by-header@kubernetescrd
 spec:
   rules:
     - host: kimkues.invalid

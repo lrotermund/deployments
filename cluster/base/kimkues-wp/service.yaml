@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kimkues-wp
+  namespace: kimkues-wp
+  labels:
+    app: kimkues-wp
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: kimkues-wp
+    tier: frontend
+  type: NodePort

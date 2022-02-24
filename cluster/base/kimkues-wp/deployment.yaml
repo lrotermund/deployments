@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kimkues-wp
+  namespace: kimkues-wp
+  labels:
+    app: kimkues-wp
+spec:
+  selector:
+    matchLabels:
+      app: kimkues-wp
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: kimkues-wp
+        tier: frontend
+    spec:
+      containers:
+      - image: wordpress
+        name: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql
+        - name: WORDPRESS_DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: user
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: password
+        - name: WORDPRESS_DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: name
+        ports:
+        - containerPort: 80
+          name: wordpress
+        volumeMounts:
+        - name: kimkues-wp-persistent-storage
+          mountPath: /var/www/html
+      volumes:
+      - name: kimkues-wp-persistent-storage
+        persistentVolumeClaim:
+          claimName: kimkues-wp-pv-claim

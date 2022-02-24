@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kimkues-wp
+  namespace: kimkues-wp
+spec:
+  template:
+    spec:
+      containers:
+        - name: wordpress
+          image: wordpress:php8.1-apache
+          # env:
+          # - name: WORDPRESS_DEBUG
+          #   value: "1"

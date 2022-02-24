@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+  - ../../../base/kimkues-wp/
+  - ./secrets
+patches:
+  - deployment.yaml
+  - ./mysql/deployment.yaml
+
+patchesJson6902:
+  - path: hostname.yaml
+    target:
+      group: networking.k8s.io
+      version: v1
+      kind: Ingress
+      name: kimkues-wp
+      namespace: kimkues-wp

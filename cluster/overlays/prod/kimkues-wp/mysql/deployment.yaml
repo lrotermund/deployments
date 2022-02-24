@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: kimkues-wp
+spec:
+  template:
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0

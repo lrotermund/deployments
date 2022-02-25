@@ -12,7 +12,7 @@ metadata:
     traefik.ingress.kubernetes.io/redirect-entry-point: https
     traefik.ingress.kubernetes.io/redirect-permanent: "true"
     # custom middlewares
-    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-remove-server-header@kubernetescrd,default-remove-x-powered-by-header@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd,default-redirect-wp-owasp@kubernetescrd,default-remove-server-header@kubernetescrd,default-remove-x-powered-by-header@kubernetescrd
 spec:
   rules:
     - host: kimkues.invalid

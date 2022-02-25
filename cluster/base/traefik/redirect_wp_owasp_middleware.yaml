@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-wp-owasp
+spec:
+  redirectRegex:
+    # https://regex101.com/r/ynfCgA/3
+    regex: ^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?author=\d+|wp-admin\/includes)
+    # ${1} is the protocol including ":", e.g. https: or http:
+    # ${3} is the host including the prefix "//"", e.g. //foobar.de
+    replacement: ${1}${3}

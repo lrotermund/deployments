@@ -6,3 +6,4 @@ bases:
   - blog
   - keycloak
   - kimkues-wp
+  - portainer
